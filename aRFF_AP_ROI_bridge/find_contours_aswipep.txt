@@ -1,0 +1,86 @@
+function [] = find_contours_aswipep(audiofolname,filename)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% FIND_CONTOURS_ASWIPEP.M finds the fundamental frequency contour
+% & the pitch strength contour using Auditory-SWIPE'
+%
+% Author: Jenny Vojtech (jmvo@bu.edu)
+%         Stepp Lab, Boston University, MA
+% Last Updated: 11/11/2018
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%Initialize global variables
+global min_pitch_set;   %minimum F0 (Hz)
+global max_pitch_set;   %maximum F0 (Hz)
+global perform_fol;     %output folder
+
+%%%Declare folders of interest
+aRFF.subjectid = filename(1:end-4);
+folname = [perform_fol aRFF.subjectid '\var\'];
+f0cfile = [folname 'f0c_param.mat']; % F0 contour variables
+
+if ~exist(folname,'dir')
+    mkdir(folname);
+end
+
+%%%Read in audio file
+%in = speech signal (V)
+%fs = sampling frequency (Hz)
+%t  = t vector for speech signal (s)
+%N  = number of samples
+[in, fs] = audioread([audiofolname,filename]);
+t        = linspace(0,length(in)/fs,length(in));
+N        = length(t);
+
+%%%If there are multiple channels, only read in the first channel
+if size(in,2) > 1
+    in = in(:,1);
+end
+in = (in)./(0.9*max(abs(in))); % Peak-normalize the audio file
+
+%%%Collect signal and noise
+%v_prob is high there is likely to be a vowel (energy in 0 - 3.4 kHz)
+[B,A] = butter(5,(3400)/(fs/2),'low');
+lowy = filtfilt(B,A,in);
+sm_lowy = smoothdata(abs(lowy), 'movmedian', fs/20);
+v_prob = (sm_lowy - mean(sm_lowy))./std(sm_lowy);
+v_prob = v_prob - min(v_prob);
+
+%f_prob is high when there is likely to be a fricative (energy in
+%3.4 kHz to 8 kHz)
+[B,A] = butter(5,[(3400)/(fs/2) (8000)/(fs/2)]);
+highy = filtfilt(B,A,in);
+sm_highy = smoothdata(abs(highy), 'movmedian', fs/20);
+fric_like = smoothdata(sm_highy./sm_lowy, 'movmedian', fs/20);
+f_prob = (fric_like - mean(fric_like))./std(fric_like);
+f_prob = f_prob - min(f_prob);
+
+fv_diff = f_prob - v_prob;
+fv_diff_prob_temp = smoothdata(fv_diff, 'movmedian', fs/20);
+
+%%%Define A-SWIPE' parameters
+minF0    = min_pitch_set; %minimum F0 (Hz)
+maxF0    = max_pitch_set; %maximum F0 (Hz)
+dt       = 0.001;         %time interval for F0 estimation
+woverlap = 0.6;           %Hann window overlap (0-1)
+STHR     = 0;             %pitch strength threshold
+dERBs    = 1/32;          %spectrum step size
+dlog2p   = 1/32;          %resolution in steps per octave
+
+%%%Find pitch strength contour using A-SWIPE'
+warning('off','all');
+[P,T,S] = aswipep(in,fs,[minF0,maxF0],dt,dlog2p,dERBs,woverlap,STHR);
+warning('on','all');
+savePSc = interp1(T,S,t,'linear'); %pitch strength (PS) contour
+savePSc = savePSc - min(savePSc);
+savePSc(isnan(savePSc)) = 0.01;    %remove NaN from PS contour
+ps = mean(savePSc((fv_diff_prob_temp<0)));
+saveF0c = interp1(T,P,t,'linear'); %pitch strength (PS) contour
+saveF0c(isnan(saveF0c)) = 0.01;
+
+aRFF.ps = ps;
+aRFF.F0c = saveF0c;
+aRFF.PSc = savePSc;
+
+save(f0cfile,'saveF0c','aRFF') %save resultant vectors
+
+end

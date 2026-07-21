@@ -1,0 +1,252 @@
+{
+  "version": "v25.0.0-github-ready",
+  "generated": "2026-07-21",
+  "scope": "Retained RFF-MB and aRFF-AP native, adapter, dependency, and license files",
+  "source_files_modified_during_github_preparation": false,
+  "excluded_from_public_package": [
+    "aRFF_AP_ROI_bridge/test_audio/",
+    "aRFF_AP_ROI_bridge/avhi_outputs/",
+    "participant-linked development audit tables and internal audit notes"
+  ],
+  "files": [
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/get_praat_pulse_mb_native.m",
+      "sha256": "12a56010e29e5d2590d2a3d0c26b514caa5a994971097ed9096d12d5797121bf"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/get_praat_pulse_original.m",
+      "sha256": "c1b4f1235413f7d8d75e32f8c37ba2c6ce2cddac99e96353c620bf014935c9ea"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/get_pulses_slide_mb_native.m",
+      "sha256": "f23791abcf072cdeca868e4695a2df9878d70874495f12f0d6e82efda05a8bab"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/get_pulses_slide_original.m",
+      "sha256": "596e13261d9a0545285f5b5dc6364d5232f75b5f3192510ccefb4706abc8f652"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/praat_pulse_array_mb_native.praat",
+      "sha256": "96b090571022e1ad05938ca3778747433947b56b3f83c8893eb342ed86bbae8c"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/prctile.m",
+      "sha256": "41510d8a2390f41013c7361a10cab16d55173acb9f27e6bc88d56132a2edad6e"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/LICENSE",
+      "sha256": "8817b5362d56d3a8d917f701073ea2f4c49474f477b7e39411ae35ab84b3841e"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/RFF_auto_MB_ROI_bridge.m",
+      "sha256": "d99c1286ab617cc29eb2c20c45900ea290a3277dff24b66a3c933c4a5f53e5e2"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/RFF_auto_MB_original_unmodified.m",
+      "sha256": "1db33103f720387da1953fdcd238bae78828bc70805a5ddcfda86c8d45af7bb9"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/run_RFF_auto_MB_ROI_bridge.m",
+      "sha256": "75059aaf35e61993c673c23069479216b3595c2ba578362940877924883948c3"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/ERBFilterBank.txt",
+      "sha256": "b88e7fccd74e2f931eb89d6b625a714eebccf39af407fe6c35fc97ff0fe7cfb4"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/ERBFilters.txt",
+      "sha256": "5376ddd31b678fcd980004820625f913031a472f18ba71d85ea7dd3d69bc79b3"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/RFFoutput.txt",
+      "sha256": "56ebb34c2630183ff50c17269bc91a8f86204c0fa6beae4ff6070ea665e2abc7"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/aswipep.txt",
+      "sha256": "f4908f34352401986d38226b4ab60e072f8f2db5ec34aa5905bc45e607baddd9"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/calcRFF.txt",
+      "sha256": "1f65a8a38d9120eea833eb1bd24b9d382b6a1797db55fc00f93bc0b42124fb50"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/checking_cycles.txt",
+      "sha256": "1775654c22ebac04cd678c5e7c51bdd5e034e0fd92a350fbacb6185fc8d6e369"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/RFFoutput.m",
+      "sha256": "56ebb34c2630183ff50c17269bc91a8f86204c0fa6beae4ff6070ea665e2abc7"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/RFFoutput_native_bridge.m",
+      "sha256": "6e4ce05b6935e46b00915773ce0488eea6a552a71341c054ff255d63af40a3ab"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/aRFFparam.mat",
+      "sha256": "591287ae4cc6a22bf74d7121263f414d804769c3b65bbb2f878a65852bab8f47"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/autocorr.m",
+      "sha256": "df3c37459e3d073a2e049f5788945e012ab0fa400fcf3c2e35e525e0dc056fec"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/calcRFF.m",
+      "sha256": "1f65a8a38d9120eea833eb1bd24b9d382b6a1797db55fc00f93bc0b42124fb50"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/checking_cycles.m",
+      "sha256": "1775654c22ebac04cd678c5e7c51bdd5e034e0fd92a350fbacb6185fc8d6e369"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/find_RFFcycles_aswipep.m",
+      "sha256": "c9cd5b34bf1ec929804dd9a2cbb166ea275ae5d0e521b73186de179496729f6b"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/find_RFFcycles_aswipep_original_auto_fricative.m",
+      "sha256": "c9cd5b34bf1ec929804dd9a2cbb166ea275ae5d0e521b73186de179496729f6b"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/find_RFFcycles_aswipep_roi_native.m",
+      "sha256": "1f6ee248e7c8fd867aef152522d72df35d605cc50782b9fd0e8039a55cb521cc"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/find_contours_aswipep.m",
+      "sha256": "7c3eee8960caea9b3476d00e722d5583f6d2f32a84211d70bc0b348f9b96d2c3"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/find_fric_aswipep.m",
+      "sha256": "d76413f4dbe610d5af543f330e5986ba62402075161b1cf88b8b9f0aae4d3db9"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/find_fric_roi_native.m",
+      "sha256": "dedf906237385563ffc3e1929effeea127b9b2a22e809c32875a970eb2aaa0b1"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/finer_t0_est.m",
+      "sha256": "543e613c8be1b0ebb32ad0aeb925a3feaafcb050094e2b919dca32b2b37ac77d"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/peak_find.m",
+      "sha256": "cdbb6551094a42613b9452acecf1d9b20a208ba36bce72231b36935bdd3cedf1"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/plot_pulses.m",
+      "sha256": "26725bb69bdc2b6101d744846dcdfcf835c3e3b6dfccb4b946e1c19aab70b258"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/procrustes.m",
+      "sha256": "d98441731e11d9838e2ae8d76dabe75b428e24cd7d4551e91dd631872cb603b8"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/range.m",
+      "sha256": "f857e93f3d5355c0c6d2c3486925da2b1b275e2ac7cd6581fa77bf0dc073d458"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/smooth.m",
+      "sha256": "d64d7c51ca7d915c3dcae5c424c7c0bef338e68dd00d5417b1f6bef6c58a09e2"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/swipe/ERBFilterBank.m",
+      "sha256": "b88e7fccd74e2f931eb89d6b625a714eebccf39af407fe6c35fc97ff0fe7cfb4"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/swipe/ERBFilters.m",
+      "sha256": "5376ddd31b678fcd980004820625f913031a472f18ba71d85ea7dd3d69bc79b3"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/swipe/aswipep.m",
+      "sha256": "f4908f34352401986d38226b4ab60e072f8f2db5ec34aa5905bc45e607baddd9"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/swipe/outmidear.m",
+      "sha256": "8078004040d962c82ec6b8475993cd7317118eebfea5b4b804a77cda5f408450"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/swipe/testaswipep.m",
+      "sha256": "1be3d5b18bbda7e714dd658e30320dc8377e8dd2c3f645c16e7fdfadaa820696"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/threshfind.m",
+      "sha256": "901b94da9f5582262f6e8d61c617c1fc2d48449867439ff84b87a90d4924d9c2"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/trough_find.m",
+      "sha256": "26df54702cea1e494640ea045f8ce9aea2004977b8b2f9ef1911a7a4520ab47d"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/vsmooth_custom.m",
+      "sha256": "8cc69f47066ca3897742294d4d0aab89bf1f581d0c555c59852b47ec1f5e05c0"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/zero_crossings.m",
+      "sha256": "9a2abe886ae14097f6d2fafbd72b27b47ac8daf371f15b6af9fe552827ea519d"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/find_RFFcycles_aswipep.txt",
+      "sha256": "c9cd5b34bf1ec929804dd9a2cbb166ea275ae5d0e521b73186de179496729f6b"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/find_contours_aswipep.txt",
+      "sha256": "a9cc7229fb1585868c1dc0551589aee7a21f8070a9609b63bac6ef1da5d6cbaa"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/find_fric_aswipep.txt",
+      "sha256": "d76413f4dbe610d5af543f330e5986ba62402075161b1cf88b8b9f0aae4d3db9"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/finer_t0_est.txt",
+      "sha256": "543e613c8be1b0ebb32ad0aeb925a3feaafcb050094e2b919dca32b2b37ac77d"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/main_RFF.m",
+      "sha256": "0f09c2e8ce13a02ce3550c2982472c8b0b02bba76dc9271f5d5c31323a3aabee"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/main_RFF.txt",
+      "sha256": "0f09c2e8ce13a02ce3550c2982472c8b0b02bba76dc9271f5d5c31323a3aabee"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/main_RFF_original_auto_fricative.m",
+      "sha256": "0f09c2e8ce13a02ce3550c2982472c8b0b02bba76dc9271f5d5c31323a3aabee"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/outmidear.txt",
+      "sha256": "8078004040d962c82ec6b8475993cd7317118eebfea5b4b804a77cda5f408450"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/peak_find.txt",
+      "sha256": "cdbb6551094a42613b9452acecf1d9b20a208ba36bce72231b36935bdd3cedf1"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/plot_pulses.txt",
+      "sha256": "26725bb69bdc2b6101d744846dcdfcf835c3e3b6dfccb4b946e1c19aab70b258"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/run_arff_ap_roi_bridge.m",
+      "sha256": "4e4c3c21b750e0c4f080092291408307e1b2acd63133a53c494d0c1b1ae0a92b"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/testaswipep.txt",
+      "sha256": "1be3d5b18bbda7e714dd658e30320dc8377e8dd2c3f645c16e7fdfadaa820696"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/threshfind.txt",
+      "sha256": "901b94da9f5582262f6e8d61c617c1fc2d48449867439ff84b87a90d4924d9c2"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/trough_find.txt",
+      "sha256": "26df54702cea1e494640ea045f8ce9aea2004977b8b2f9ef1911a7a4520ab47d"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/vsmooth_custom.txt",
+      "sha256": "8cc69f47066ca3897742294d4d0aab89bf1f581d0c555c59852b47ec1f5e05c0"
+    },
+    {
+      "path": "aRFF_AP_ROI_bridge/zero_crossings.txt",
+      "sha256": "9a2abe886ae14097f6d2fafbd72b27b47ac8daf371f15b6af9fe552827ea519d"
+    }
+  ],
+  "note": "Documentation files added during GitHub preparation are outside the native source-hash scope.",
+  "all_retained_source_files_byte_identical_to_supplied_v25": true,
+  "comparison_source": "RFF_Method_Comparison_v25_OPTIONAL_STI(1).zip"
+}

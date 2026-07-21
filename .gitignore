@@ -1,0 +1,63 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Participant or corpus data — do not commit
+*.wav
+*.flac
+*.aiff
+*.aif
+*.mp3
+participant_metadata*.csv
+!participant_metadata_template.csv
+rff_roi_marks*.csv
+rff_roi_marks*.xlsx
+fricative_locations*.csv
+fricative_locations*.xlsx
+
+# Bundled development fixtures not intended for public repository history
+aRFF_AP_ROI_bridge/avhi_outputs/
+
+# Generated analysis outputs
+rff_all_*.csv
+rff_debug.csv
+rff_final_landmarks_long.csv
+rff_cycle_qc.csv
+rff_manual_review_queue.csv
+rff_exclusion_log.csv
+rff_comparison_eligibility.csv
+rff_method_validation.csv
+rff_normative_metadata_audit.csv
+rff_cepstral_transition_index_long.csv
+rff_subject_method_summary.csv
+rff_method_normative_ranking.csv
+rff_sti_*.csv
+rff_method_comparison_outputs.xlsx
+rff_config_used.json
+rff_script_version.txt
+rff_run_manifest.json
+rff_roi_marks_MATLAB_MANIFEST.csv
+debug_plots/
+matlab_mb_roi/
+matlab_arff_ap_roi/
+previous_result_runs/
+aborted_runs/
+failed_runs/
+
+# Additional public-release safeguards
+**/test_audio/
+**/avhi_outputs/
+*.xlsx~
+*.xls
+*.matlab.log
+*.log
+roi_autosave_backups/
+rff_roi_marks_AUTOSAVE.*

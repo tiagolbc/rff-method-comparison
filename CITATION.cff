@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the software release and the original RFF methods listed in the README."
+title: "RFF Method Comparison v25"
+type: software
+authors:
+  - family-names: "Cruz"
+    given-names: "Tiago Lima Bicalho"
+version: "25.0.0"
+date-released: "2026-07-21"
+repository-code: "https://github.com/tiagolbc/rff-method-comparison"
+keywords:
+  - relative fundamental frequency
+  - RFF
+  - voice acoustics
+  - auditory-perceptual strain
+  - vocal hyperfunction
+  - Praat
+  - MATLAB
+  - spatiotemporal index

@@ -1,0 +1,20 @@
+RFF Method Comparison v25.0.0 — GitHub-ready validation report
+Date: 2026-07-21
+
+Scope
+- Preserved the v24 numerical RFF extraction methods.
+- Added optional bias-corrected STI post-processing and GUI/output integration.
+- Added public documentation, citations, attribution, CI validation, and data-protection safeguards.
+- Removed development audio, generated outputs, participant-linked audit tables, and internal historical audit notes from the public package.
+
+Checks passed
+1. Python syntax compilation for all repository Python files.
+2. Frozen v25 synthetic regression suite.
+3. STI-enabled output tests.
+4. STI-disabled output tests.
+5. Integrated STI numerical reproduction check.
+6. Native MB and aRFF-AP source and adapter hashes verified against the supplied v25 package.
+7. Scan for audio files, participant-linked audit tables, generated output folders, and Python cache files in the GitHub-ready archive.
+
+Conclusion
+The GitHub preparation changed documentation and packaging only. No RFF extraction function, native MATLAB method, validity rule, or STI formula was modified.
