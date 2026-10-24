@@ -12,8 +12,9 @@ Vojtech/Buckley normative threshold values for OFF10 and ON1.
 Implemented methods
 -------------------
 1) AVHI_PRAAT_STRICT
-   ROI-guided Praat/Parselmouth PointProcess extraction with AVHI/aRFF-B-like
-   rejection rules. This method runs directly in Python.
+   ROI-guided Praat/Parselmouth PointProcess implementation developed by Tiago
+   Cruz from his own AVHI rff.py module. Quality-control criteria follow
+   established RFF conventions. This method runs in Python.
 
 2) RFF_CEPSTRAL
    Robust cepstral-assisted classical RFF. A multi-candidate cepstral/AC pitch
@@ -426,7 +427,8 @@ class RFFConfig:
     cep_strict_exclude_review: bool = True
     cep_window_reoptimization_penalty: float = 0.08
     edge_pad_s: float = 0.60
-    # aRFF-AP-like extraction settings. MATLAB aRFF-AP defaults are 50-400 Hz.
+    # Legacy Python AP approximation settings; not the native MATLAB aRFF-AP
+    # and not the active cRFF tracker. Native MATLAB defaults are 50-400 Hz.
     ap_min_pitch: float = 50.0
     ap_max_pitch: float = 400.0
     ap_pitch_step_s: float = 0.002
@@ -1614,7 +1616,7 @@ def combine_peak_trough_rff(
 
 
 # =============================================================================
-# aRFF-AP-like and adjusted cepstral-assisted extraction
+# Legacy Python AP approximation helpers; retained for development comparison
 # =============================================================================
 
 ARFF_OFF_DIFF_THRESH_ST = np.asarray([0.5, 0.5, 0.5, 0.5, 0.8, 1.0, 1.5, 2.5, 3.5], dtype=float)
@@ -2284,7 +2286,7 @@ def compute_ap_roi_rff(
     fric_end: float,
     config: RFFConfig,
 ) -> TraceResult:
-    """ROI-guided aRFF-AP-like method, using F0-filtered acoustic peak/trough landmarks."""
+    """Legacy Python AP approximation, not the native aRFF-AP or active cRFF path."""
     return _compute_arff_like_rff(
         wav_path=wav_path,
         subject=subject,
@@ -3912,7 +3914,12 @@ def compute_cepstral_rff(
     fric_end: float,
     config: RFFConfig,
 ) -> TraceResult:
-    """Robust cepstral-assisted *classical* 10-cycle RFF.
+    """Robust cepstral-assisted *classical* 10-cycle RFF by Tiago Cruz.
+
+    This independent extraction path does not call aRFF-AP, MATLAB, or the
+    legacy Python AP approximation. Shared numerical utilities are generic
+    within-project helpers; cepstral features guide cycle periodicity rather
+    than serving as downstream CPPS discriminant features.
 
     The cepstrum does not create RFF when no periodic cycles exist. It supplies a
     confidence-bearing, octave-aware F0 path. Final RFF is calculated only from

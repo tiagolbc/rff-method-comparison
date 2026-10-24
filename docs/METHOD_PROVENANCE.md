@@ -2,7 +2,13 @@
 
 ## RFF-TC-ROI
 
-`AVHI_PRAAT_STRICT` is the stable internal output identifier for the method referred to publicly as **RFF-TC-ROI**. It is an ROI-guided Python/Praat-Parselmouth pipeline developed by Tiago Cruz. The internal identifier is retained to avoid breaking existing output parsers and regression comparisons.
+`AVHI_PRAAT_STRICT` is the stable internal output identifier for the method referred to publicly as **RFF-TC-ROI**. It is an ROI-guided Python/Praat-Parselmouth implementation developed by Tiago Cruz from his own AVHI rff.py module. The internal identifier is retained to avoid breaking existing output parsers and regression comparisons.
+
+## cRFF
+
+`RFF_CEPSTRAL` identifies the cepstral-assisted classical RFF implementation developed independently by Tiago Cruz. The active `compute_cepstral_rff` route reads the waveform, constructs multiresolution cepstral/autocorrelation candidates, links a Viterbi periodicity path, derives Hilbert analytic-phase landmarks, and calculates ten-cycle RFF from accepted periods. It does not obtain its RFF values through the native aRFF-AP bridge or the retained legacy Python AP approximation. Generic numerical helpers are shared within the application.
+
+Cepstral evidence supports periodicity tracking and acceptance. The final measure uses the classical cycle-frequency ratio in semitones; it does not append CPPS as a classifier feature. Legacy AP approximation helpers remain in the source for development comparison and are distinct from both the active cRFF route and native MATLAB aRFF-AP. These descriptions document implementation, without claiming physiological validation or historical priority.
 
 ## RFF-MB
 
@@ -26,7 +32,9 @@ Original or byte-preserved source copies are retained, including:
 - `aRFF_AP_ROI_bridge/dependencies/RFFoutput.m`
 - `aRFF_AP_ROI_bridge/dependencies/calcRFF.m`
 
-The separate ROI adapter replaces the original automatic fricative-localization result with externally verified `FricStart` and `FricEnd` boundaries. The native Auditory-SWIPE′ pitch estimation, cycle-candidate logic, rejection rules, and final RFF calculation remain authoritative.
+Native aRFF-AP already includes automatic fricative localization followed by human verification and correction. The separate ROI adapter replaces that localization result with externally verified `FricStart` and `FricEnd` boundaries. The native Auditory-SWIPE′ pitch estimation, cycle-candidate logic, rejection rules, and final RFF calculation remain authoritative.
+
+External boundaries change the operating inputs of the adapted methods. Technical availability describes whether an implementation returns an accepted result under its own rules; it does not establish accuracy or performance in the native localization workflow.
 
 ## Public-package cleanup
 

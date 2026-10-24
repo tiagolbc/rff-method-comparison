@@ -6,16 +6,16 @@ A reproducible desktop application for processing the same manually verified vow
 
 | Public manuscript label | Internal output code | Description |
 |---|---|---|
-| **RFF-TC-ROI** | `AVHI_PRAAT_STRICT` | ROI-guided Praat/Parselmouth pulse extraction developed by Tiago Cruz, with conservative transition, steady-state, outlier, and rejection rules. |
+| **RFF-TC-ROI** | `AVHI_PRAAT_STRICT` | ROI-guided Praat/Parselmouth pulse extraction developed by Tiago Cruz from his own AVHI rff.py module, with transition, steady-state, outlier, and rejection rules. |
 | **RFF-MB** | `RFF_MB_ROI_MATLAB` | Mark Berardi's MATLAB/Praat RFF pipeline adapted to use the verified ROI boundaries. |
 | **aRFF-AP** | `RFF_AP_ROI_MATLAB` | The Vojtech/Stepp Lab automated RFF pipeline adapted to use the verified ROI boundaries. |
-| **cRFF** | `RFF_CEPSTRAL` | Cepstral-assisted classical 10-cycle RFF implemented in Python. |
+| **cRFF** | `RFF_CEPSTRAL` | Cepstral-assisted classical 10-cycle RFF independently implemented by Tiago Cruz in Python, using cepstral/autocorrelation tracking and analytic-phase cycle landmarks. |
 
 The internal code `AVHI_PRAAT_STRICT` is retained for backward compatibility; publications and public-facing documentation may refer to it as **RFF-TC-ROI**.
 
 ## What was preserved in the third-party methods
 
-Unmodified copies of the original RFF-MB and aRFF-AP source files are retained alongside separate ROI adapters.
+Unmodified copies of the original RFF-MB and aRFF-AP source files are retained alongside separate ROI adapters. Native aRFF-AP already includes automatic fricative localization followed by human verification and correction; supplying external boundaries controls localization inputs. These adapters change the input conditions, so technical availability under an external ROI is not a measure of native-configuration accuracy.
 
 - **aRFF-AP:** the original automatic fricative-localization step was replaced by externally supplied `FricStart` and `FricEnd` boundaries. The native Auditory-SWIPE′ pitch estimation, cycle extraction, rejection logic, and RFF calculation were retained.
 - **RFF-MB:** the original single `FricLoc` anchor was replaced by `FricStart` for offset and `FricEnd` for onset. The native Praat pulse extraction, 10-ms sliding-window voting, rejection sequence, and RFF equations were retained.
