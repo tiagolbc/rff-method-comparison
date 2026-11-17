@@ -1,0 +1,143 @@
+{
+  "Date": "2026-11-16",
+  "MATLAB": "R2026b Update 1",
+  "Original_source_files_checked": 19,
+  "AP_matched_original_cycle_states": {
+    "Compared_sides": 4,
+    "Max_RFF_difference_ST": 0,
+    "Max_landmark_difference_samples": 0,
+    "Scope": "Original cycle routine versus ROI routine with identical prepared inputs and coincident anchors; not full native localization equivalence"
+  },
+  "MB_matched_original_script": {
+    "Compared_rows": 2,
+    "Max_landmark_difference_seconds": 4.996003610813204e-16,
+    "Max_RFF_difference_ST": 1.942890293094024e-16,
+    "Scope": "Original script and ROI bridge on identical full-file audio with coincident FricLoc anchors; does not assert equivalence after changing separate ROI edges/crops."
+  },
+  "Numerical_helpers": {
+    "Percentile_max_absolute_error": 2.7755575615628914e-17,
+    "Smooth_reference": "Independent direct means, documented finite uniformly indexed vector domain",
+    "Smooth_cases": 63,
+    "Smooth_max_absolute_error": 3.552713678800501e-15,
+    "Procrustes_1D_max_absolute_error": 2.220446049250313e-16,
+    "Autocorr_finite_vector_max_absolute_error": 1.3877787807814457e-16,
+    "Limitations": "Smooth is checked against documented finite-vector semantics, not an installed Curve Fitting Toolbox binary. Autocorr and procrustes checks cover mathematical finite-vector AP call forms, not the full toolbox APIs or degenerate inputs.",
+    "MATLAB": "26.2.0.3433840 (R2026b) Update 1"
+  },
+  "Optional_native_toolbox_binaries": {
+    "smooth": {
+      "Status": "SKIPPED_NATIVE_TOOLBOX_UNAVAILABLE"
+    },
+    "autocorr": {
+      "Status": "SKIPPED_NATIVE_TOOLBOX_UNAVAILABLE"
+    },
+    "procrustes": {
+      "Status": "SKIPPED_NATIVE_TOOLBOX_UNAVAILABLE"
+    },
+    "Scope": "Native binary comparisons only when installed. Skips are not passes. No full toolbox API or interactive localization equivalence is claimed."
+  },
+  "Four_method_application_integration": {
+    "Status": "PASS",
+    "Methods": 4,
+    "Signals": 2,
+    "Rows": 8,
+    "ROIs": "Same .48\u2013.63 s /f/ boundaries for all methods",
+    "Dispatch": "Actual application Python and MATLAB bridge entry points",
+    "Scope": "Integration, normal returns, output shape, accepted-side reference-cycle normalization and native rejection behavior; no accuracy or native-localization claim. A method may reject both fixtures; its accepted-value normalization is then not exercised by this integration layer.",
+    "Accepted_side_counts": [
+      {
+        "Method": "AVHI_PRAAT_STRICT",
+        "OffValid": 2,
+        "OnValid": 2
+      },
+      {
+        "Method": "RFF_AP_ROI_MATLAB",
+        "OffValid": 0,
+        "OnValid": 0
+      },
+      {
+        "Method": "RFF_CEPSTRAL",
+        "OffValid": 2,
+        "OnValid": 2
+      },
+      {
+        "Method": "RFF_MB_ROI_MATLAB",
+        "OffValid": 2,
+        "OnValid": 2
+      }
+    ],
+    "Results": [
+      {
+        "Subject": "F130",
+        "Method": "AVHI_PRAAT_STRICT",
+        "OffValid": true,
+        "OnValid": true
+      },
+      {
+        "Subject": "F130",
+        "Method": "RFF_CEPSTRAL",
+        "OffValid": true,
+        "OnValid": true
+      },
+      {
+        "Subject": "F240",
+        "Method": "AVHI_PRAAT_STRICT",
+        "OffValid": true,
+        "OnValid": true
+      },
+      {
+        "Subject": "F240",
+        "Method": "RFF_CEPSTRAL",
+        "OffValid": true,
+        "OnValid": true
+      },
+      {
+        "Subject": "F130",
+        "Method": "RFF_MB_ROI_MATLAB",
+        "OffValid": true,
+        "OnValid": true
+      },
+      {
+        "Subject": "F240",
+        "Method": "RFF_MB_ROI_MATLAB",
+        "OffValid": true,
+        "OnValid": true
+      },
+      {
+        "Subject": "F130",
+        "Method": "RFF_AP_ROI_MATLAB",
+        "OffValid": false,
+        "OnValid": false
+      },
+      {
+        "Subject": "F240",
+        "Method": "RFF_AP_ROI_MATLAB",
+        "OffValid": false,
+        "OnValid": false
+      }
+    ]
+  },
+  "Real_corpus": {
+    "Real_method_rows": 2556,
+    "All_returned_normally": true,
+    "Accepted_sides_recomputed": 3801,
+    "Maximum_RFF_landmark_difference_ST": 8.52489190350525e-11,
+    "Primary_models_independently_verified": 8,
+    "Cluster_covariance": "Direct participant score-sandwich with finite-sample correction",
+    "FDR": "Independent sorted cumulative-minimum BH"
+  },
+  "MB_vote_variants": {
+    "Rows": 1278,
+    "Vote_conditions": 2,
+    "Acceptance_changes": 0,
+    "Maximum_RFF_difference_ST": 0,
+    "Baseline_replay_verified": true
+  },
+  "MB_percentile_scope": {
+    "Real_transitions": 639,
+    "Positive_synthetic_signals": 2520,
+    "Acceptance_changes": 0,
+    "RFF_changes": 0
+  },
+  "Limit": "These tests do not establish full native automatic-localization equivalence, complete optional-toolbox API equivalence, physiological accuracy or clinical validity."
+}

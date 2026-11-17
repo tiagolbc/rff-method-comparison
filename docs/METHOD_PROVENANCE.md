@@ -1,3 +1,5 @@
+> Scope: the original-source retention record below is historical. See the [dated numerical compatibility update](NUMERICAL_COMPATIBILITY_2026-11-16.md) and [executed validation](../tests/validation_2026-11-16.json) for the current helper definitions and tested scope.
+
 # Method provenance and ROI adaptations
 
 ## RFF-TC-ROI
@@ -45,3 +47,8 @@ The GitHub-ready archive excludes development audio, generated outputs, particip
 - `validate_v25_regression.py` verifies that the optional STI addition does not change v24-style extraction outputs when STI is disabled.
 - `NATIVE_METHOD_PRESERVATION_v25.json` records SHA-256 hashes for retained native and adapter source files.
 - `SHA256SUMS.txt` records hashes for the complete GitHub-ready package.
+
+
+## Numerical compatibility record, 16 November 2026
+
+Source-retention statements in this historical record describe retained third-party routines and their intended ROI adaptation. Numerical dependencies are separately scoped in [the dated compatibility record](NUMERICAL_COMPATIBILITY_2026-11-16.md). AP smoothing and MB percentile interpolation were aligned with documented MATLAB operations, and affected analyses require reprocessing. Retaining native source files does not establish full native-workflow equivalence.

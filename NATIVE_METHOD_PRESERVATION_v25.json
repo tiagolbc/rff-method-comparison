@@ -1,14 +1,24 @@
 {
   "version": "v25.0.0-github-ready",
-  "generated": "2026-07-21",
+  "generated": "2026-11-16",
   "scope": "Retained RFF-MB and aRFF-AP native, adapter, dependency, and license files",
-  "source_files_modified_during_github_preparation": false,
   "excluded_from_public_package": [
     "aRFF_AP_ROI_bridge/test_audio/",
     "aRFF_AP_ROI_bridge/avhi_outputs/",
     "participant-linked development audit tables and internal audit notes"
   ],
-  "files": [
+  "note": "Documentation files added during GitHub preparation are outside the native source-hash scope.",
+  "all_retained_source_files_byte_identical_to_supplied_v25": true,
+  "comparison_source": "RFF_Method_Comparison_v25_OPTIONAL_STI(1).zip",
+  "Numerical_compatibility_update_2026_11_16": {
+    "Record": "docs/NUMERICAL_COMPATIBILITY_2026-11-16.md",
+    "AP_smooth": "Documented finite-vector moving average",
+    "MB_prctile": "Documented midpoint interpolation",
+    "Scope": "ROI-adapted processing; source retention is distinct from full numerical and workflow equivalence"
+  },
+  "original_manifest_generated": "2026-07-21",
+  "source_files_modified_during_original_github_preparation": false,
+  "historical_package_files": [
     {
       "path": "rff_auto_mb_roi_bridge/Dependencies/get_praat_pulse_mb_native.m",
       "sha256": "12a56010e29e5d2590d2a3d0c26b514caa5a994971097ed9096d12d5797121bf"
@@ -246,7 +256,15 @@
       "sha256": "9a2abe886ae14097f6d2fafbd72b27b47ac8daf371f15b6af9fe552827ea519d"
     }
   ],
-  "note": "Documentation files added during GitHub preparation are outside the native source-hash scope.",
-  "all_retained_source_files_byte_identical_to_supplied_v25": true,
-  "comparison_source": "RFF_Method_Comparison_v25_OPTIONAL_STI(1).zip"
+  "current_numerical_helpers": [
+    {
+      "path": "aRFF_AP_ROI_bridge/dependencies/smooth.m",
+      "sha256": "32716d08b91c3a8017be57af2c05b18f13d76b943363901ea82a8cb400c67ce3"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/prctile.m",
+      "sha256": "43f468733da519b2a8f9c6ac48f20c61e4c617b140ea9462af4ed48ba7c875a8"
+    }
+  ],
+  "hash_scope": "Historical package hashes are retained separately; current helper hashes identify the dated alignment. Fixed normalized original-source hashes and executed test evidence are in tests/."
 }

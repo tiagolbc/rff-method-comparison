@@ -1,6 +1,6 @@
 # RFF Method Comparison v25
 
-A reproducible desktop application for processing the same manually verified vowel–/f/–vowel regions of interest (ROIs) with four relative fundamental frequency (RFF) pipelines. Version 25 preserves the v24 extraction logic and adds an optional exploratory spatiotemporal-index (STI) calculation.
+A reproducible desktop application for processing the same manually verified vowel–/f/–vowel regions of interest (ROIs) with four relative fundamental frequency (RFF) pipelines. The v25 interface includes an optional exploratory spatiotemporal-index (STI) calculation. The numerical compatibility update dated 16 November 2026 aligns the AP moving-average helper and MB midpoint-percentile helper with the documented MATLAB operations; see `docs/NUMERICAL_COMPATIBILITY_2026-11-16.md`.
 
 ## Methods included
 
@@ -19,7 +19,7 @@ Unmodified copies of the original RFF-MB and aRFF-AP source files are retained a
 
 - **aRFF-AP:** the original automatic fricative-localization step was replaced by externally supplied `FricStart` and `FricEnd` boundaries. The native Auditory-SWIPE′ pitch estimation, cycle extraction, rejection logic, and RFF calculation were retained.
 - **RFF-MB:** the original single `FricLoc` anchor was replaced by `FricStart` for offset and `FricEnd` for onset. The native Praat pulse extraction, 10-ms sliding-window voting, rejection sequence, and RFF equations were retained.
-- Additional bridge changes are limited to portable paths, file input/output, temporary-file handling, audit exports, and diagnostic plots.
+- The adapters also provide portable paths, file input/output, temporary-file handling, audit exports, diagnostic plots, and restricted numerical compatibility helpers. These helpers are part of the evaluated implementation and should be included in source-fidelity audits. See the dated numerical compatibility record for their tested scope and limitations.
 
 See [`docs/METHOD_PROVENANCE.md`](docs/METHOD_PROVENANCE.md), [`ORIGINAL_CODE_PROVENANCE_v16.md`](ORIGINAL_CODE_PROVENANCE_v16.md), and [`NATIVE_METHOD_PRESERVATION_v25.json`](NATIVE_METHOD_PRESERVATION_v25.json).
 
@@ -48,7 +48,7 @@ STI is an exploratory trajectory-variability measure. It is not a diagnosis of v
 - MATLAB for RFF-MB and aRFF-AP
 - Praat and `praat-parselmouth` for Praat-based processing
 
-The current package was tested with MATLAB R2026a. The Python-only methods can be used without MATLAB.
+The ROI processing and numerical compatibility update were tested with MATLAB R2026b Update 1. RFF-MB requires Audio Toolbox and Signal Processing Toolbox; AP requires the signal-processing routines used by the supplied source. Restricted helpers cover the finite-vector call forms used here and do not implement the complete optional-toolbox APIs. The Python-only methods can be used without MATLAB.
 
 ## Installation
 

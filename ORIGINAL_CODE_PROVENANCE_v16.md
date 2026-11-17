@@ -1,3 +1,5 @@
+> Scope: this is the historical source-retention record. The [dated numerical compatibility update](docs/NUMERICAL_COMPATIBILITY_2026-11-16.md) and tests describe the current evaluated helpers.
+
 # Original-code provenance — v16
 
 Authoritative source archives supplied by the user:
@@ -19,3 +21,8 @@ The AP native cycle adapter differs from the original cycle finder only in its f
 
 The MB native sliding helper is a copy of the original with only its function name and pulse-I/O function calls changed. Pulse I/O writes temporary text files for Windows reliability but performs the original Praat signal operations.
 
+
+
+## Numerical compatibility record, 16 November 2026
+
+Source-retention statements in this historical record describe retained third-party routines and their intended ROI adaptation. Numerical dependencies are separately scoped in [the dated compatibility record](docs/NUMERICAL_COMPATIBILITY_2026-11-16.md). AP smoothing and MB percentile interpolation were aligned with documented MATLAB operations, and affected analyses require reprocessing. Retaining native source files does not establish full native-workflow equivalence.
