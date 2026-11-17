@@ -1,27 +1,20 @@
-# Changelog — v25 Optional STI
+# RFF Method Comparison v25 features
 
-## RFF numerical methods
+## RFF processing
 
-- No changes to RFF-TC-ROI (`AVHI_PRAAT_STRICT`), RFF-MB, aRFF-AP, cRFF, cTFI, validity rules, quality-control thresholds, or PASS/REVIEW/FAIL classification.
-- Native MATLAB source and ROI-adapter files are unchanged from the supplied v25 package.
-- The v24 GUI corpus-reset and output-protection behavior is preserved.
+- Four extraction routes use shared recordings and verified fricative ROIs.
+- Each method retains its specified cycle-selection and acceptance rules.
+- Numerical helper definitions and source hashes identify the evaluated implementation.
+- Corpus-reset and output-protection controls support separate processing runs.
 
-## New optional post-processing
+## Optional STI post-processing
 
-- Added a GUI checkbox to calculate RFF spatiotemporal indices.
-- STI is calculated independently for each participant, method, and side from complete valid repeated 10-cycle trajectories.
-- Added raw and gamma-bias-corrected STI, trace counts, OFF10/ON1 mean and SD, 50-point profiles, and a trace audit.
-- Added STI CSV outputs and Excel workbook sheets only when the checkbox is selected.
-- Added STI settings and status to the saved configuration and run manifest.
+- STI is calculated by participant, method and side from repeated valid ten-cycle trajectories.
+- Outputs include raw and bias-corrected STI, trace counts, OFF10/ON1 summaries, 50-point profiles and a trace audit.
+- STI CSV files and workbook sheets are exported when the option is selected.
 
-## GitHub-ready public package
+## Documentation and verification
 
-- Added complete citations for RFF-MB, aRFF-AP microphone and accelerometer methods, foundational automated RFF estimation, and STI.
-- Added third-party notices, AI-assistance disclosure, `CITATION.cff`, contribution guidance, Windows launchers, GitHub Actions validation, and publication instructions.
-- Removed development audio, generated outputs, participant-linked audit tables, and internal historical audit notes.
-
-## Validation
-
-- Added synthetic STI regression tests.
-- Verified that the integrated STI implementation reproduces the independent v24 cycle-level analysis to numerical precision.
-- Verified that all retained native MB and aRFF-AP source files are byte-identical to the supplied v25 package.
+- Source records identify the supplied AP and MB routines separately from ROI adapters.
+- Compatibility tests check finite numerical operators, matched-input routines and all four dispatch routes.
+- The methodological documentation distinguishes availability, common-signal agreement and error against prescribed synthetic source periods.

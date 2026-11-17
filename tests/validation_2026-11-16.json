@@ -139,5 +139,5 @@
     "Acceptance_changes": 0,
     "RFF_changes": 0
   },
-  "Limit": "These tests do not establish full native automatic-localization equivalence, complete optional-toolbox API equivalence, physiological accuracy or clinical validity."
+  "Limit": "The executed comparisons cover the specified finite-vector operators, matched preparation and anchors, and application dispatch routes. Native automatic localization and complete optional-toolbox APIs are outside this test scope."
 }

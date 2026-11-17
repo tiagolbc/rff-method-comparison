@@ -1,64 +1,10 @@
 {
-  "version": "v25.0.0-github-ready",
+  "software": "RFF Method Comparison v25",
   "generated": "2026-11-16",
-  "scope": "Retained RFF-MB and aRFF-AP native, adapter, dependency, and license files",
-  "excluded_from_public_package": [
-    "aRFF_AP_ROI_bridge/test_audio/",
-    "aRFF_AP_ROI_bridge/avhi_outputs/",
-    "participant-linked development audit tables and internal audit notes"
-  ],
-  "note": "Documentation files added during GitHub preparation are outside the native source-hash scope.",
-  "all_retained_source_files_byte_identical_to_supplied_v25": true,
-  "comparison_source": "RFF_Method_Comparison_v25_OPTIONAL_STI(1).zip",
-  "Numerical_compatibility_update_2026_11_16": {
-    "Record": "docs/NUMERICAL_COMPATIBILITY_2026-11-16.md",
-    "AP_smooth": "Documented finite-vector moving average",
-    "MB_prctile": "Documented midpoint interpolation",
-    "Scope": "ROI-adapted processing; source retention is distinct from full numerical and workflow equivalence"
-  },
-  "original_manifest_generated": "2026-07-21",
-  "source_files_modified_during_original_github_preparation": false,
-  "historical_package_files": [
-    {
-      "path": "rff_auto_mb_roi_bridge/Dependencies/get_praat_pulse_mb_native.m",
-      "sha256": "12a56010e29e5d2590d2a3d0c26b514caa5a994971097ed9096d12d5797121bf"
-    },
-    {
-      "path": "rff_auto_mb_roi_bridge/Dependencies/get_praat_pulse_original.m",
-      "sha256": "c1b4f1235413f7d8d75e32f8c37ba2c6ce2cddac99e96353c620bf014935c9ea"
-    },
-    {
-      "path": "rff_auto_mb_roi_bridge/Dependencies/get_pulses_slide_mb_native.m",
-      "sha256": "f23791abcf072cdeca868e4695a2df9878d70874495f12f0d6e82efda05a8bab"
-    },
-    {
-      "path": "rff_auto_mb_roi_bridge/Dependencies/get_pulses_slide_original.m",
-      "sha256": "596e13261d9a0545285f5b5dc6364d5232f75b5f3192510ccefb4706abc8f652"
-    },
-    {
-      "path": "rff_auto_mb_roi_bridge/Dependencies/praat_pulse_array_mb_native.praat",
-      "sha256": "96b090571022e1ad05938ca3778747433947b56b3f83c8893eb342ed86bbae8c"
-    },
-    {
-      "path": "rff_auto_mb_roi_bridge/Dependencies/prctile.m",
-      "sha256": "41510d8a2390f41013c7361a10cab16d55173acb9f27e6bc88d56132a2edad6e"
-    },
-    {
-      "path": "rff_auto_mb_roi_bridge/LICENSE",
-      "sha256": "8817b5362d56d3a8d917f701073ea2f4c49474f477b7e39411ae35ab84b3841e"
-    },
-    {
-      "path": "rff_auto_mb_roi_bridge/RFF_auto_MB_ROI_bridge.m",
-      "sha256": "d99c1286ab617cc29eb2c20c45900ea290a3277dff24b66a3c933c4a5f53e5e2"
-    },
-    {
-      "path": "rff_auto_mb_roi_bridge/RFF_auto_MB_original_unmodified.m",
-      "sha256": "1db33103f720387da1953fdcd238bae78828bc70805a5ddcfda86c8d45af7bb9"
-    },
-    {
-      "path": "rff_auto_mb_roi_bridge/run_RFF_auto_MB_ROI_bridge.m",
-      "sha256": "75059aaf35e61993c673c23069479216b3595c2ba578362940877924883948c3"
-    },
+  "scope": "Distributed AP/MB source, adapters, dependencies and license files",
+  "original_archive_baseline": "tests/original_source_baseline.json",
+  "numerical_definitions": "docs/NUMERICAL_COMPATIBILITY_2026-11-16.md",
+  "files": [
     {
       "path": "aRFF_AP_ROI_bridge/ERBFilterBank.txt",
       "sha256": "b88e7fccd74e2f931eb89d6b625a714eebccf39af407fe6c35fc97ff0fe7cfb4"
@@ -153,7 +99,7 @@
     },
     {
       "path": "aRFF_AP_ROI_bridge/dependencies/smooth.m",
-      "sha256": "d64d7c51ca7d915c3dcae5c424c7c0bef338e68dd00d5417b1f6bef6c58a09e2"
+      "sha256": "32716d08b91c3a8017be57af2c05b18f13d76b943363901ea82a8cb400c67ce3"
     },
     {
       "path": "aRFF_AP_ROI_bridge/dependencies/swipe/ERBFilterBank.m",
@@ -254,17 +200,47 @@
     {
       "path": "aRFF_AP_ROI_bridge/zero_crossings.txt",
       "sha256": "9a2abe886ae14097f6d2fafbd72b27b47ac8daf371f15b6af9fe552827ea519d"
-    }
-  ],
-  "current_numerical_helpers": [
+    },
     {
-      "path": "aRFF_AP_ROI_bridge/dependencies/smooth.m",
-      "sha256": "32716d08b91c3a8017be57af2c05b18f13d76b943363901ea82a8cb400c67ce3"
+      "path": "rff_auto_mb_roi_bridge/Dependencies/get_praat_pulse_mb_native.m",
+      "sha256": "12a56010e29e5d2590d2a3d0c26b514caa5a994971097ed9096d12d5797121bf"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/get_praat_pulse_original.m",
+      "sha256": "c1b4f1235413f7d8d75e32f8c37ba2c6ce2cddac99e96353c620bf014935c9ea"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/get_pulses_slide_mb_native.m",
+      "sha256": "f23791abcf072cdeca868e4695a2df9878d70874495f12f0d6e82efda05a8bab"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/get_pulses_slide_original.m",
+      "sha256": "596e13261d9a0545285f5b5dc6364d5232f75b5f3192510ccefb4706abc8f652"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/Dependencies/praat_pulse_array_mb_native.praat",
+      "sha256": "96b090571022e1ad05938ca3778747433947b56b3f83c8893eb342ed86bbae8c"
     },
     {
       "path": "rff_auto_mb_roi_bridge/Dependencies/prctile.m",
       "sha256": "43f468733da519b2a8f9c6ac48f20c61e4c617b140ea9462af4ed48ba7c875a8"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/LICENSE",
+      "sha256": "8817b5362d56d3a8d917f701073ea2f4c49474f477b7e39411ae35ab84b3841e"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/RFF_auto_MB_ROI_bridge.m",
+      "sha256": "d99c1286ab617cc29eb2c20c45900ea290a3277dff24b66a3c933c4a5f53e5e2"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/RFF_auto_MB_original_unmodified.m",
+      "sha256": "1db33103f720387da1953fdcd238bae78828bc70805a5ddcfda86c8d45af7bb9"
+    },
+    {
+      "path": "rff_auto_mb_roi_bridge/run_RFF_auto_MB_ROI_bridge.m",
+      "sha256": "75059aaf35e61993c673c23069479216b3595c2ba578362940877924883948c3"
     }
   ],
-  "hash_scope": "Historical package hashes are retained separately; current helper hashes identify the dated alignment. Fixed normalized original-source hashes and executed test evidence are in tests/."
+  "hash_scope": "Hashes identify current distributed bytes; fixed normalized original-archive hashes are checked separately by the original-source tests."
 }

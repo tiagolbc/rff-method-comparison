@@ -1,54 +1,29 @@
-> Scope: the original-source retention record below is historical. See the [dated numerical compatibility update](NUMERICAL_COMPATIBILITY_2026-11-16.md) and [executed validation](../tests/validation_2026-11-16.json) for the current helper definitions and tested scope.
-
 # Method provenance and ROI adaptations
+
+RFF Method Comparison v25 integrates four extraction implementations. The application uses common recordings and externally verified fricative boundaries, records each method's acceptance decisions, and exports conventional cycle-based RFF values.
 
 ## RFF-TC-ROI
 
-`AVHI_PRAAT_STRICT` is the stable internal output identifier for the method referred to publicly as **RFF-TC-ROI**. It is an ROI-guided Python/Praat-Parselmouth implementation developed by Tiago Cruz from his own AVHI rff.py module. The internal identifier is retained to avoid breaking existing output parsers and regression comparisons.
+AVHI_PRAAT_STRICT is the output identifier for RFF-TC-ROI, the ROI-guided Python/Praat-Parselmouth implementation developed by Tiago Cruz from his AVHI rff.py module. It selects pulse windows around the supplied boundaries and applies its period, outlier, and steady-state checks.
 
 ## cRFF
 
-`RFF_CEPSTRAL` identifies the cepstral-assisted classical RFF implementation developed independently by Tiago Cruz. The active `compute_cepstral_rff` route reads the waveform, constructs multiresolution cepstral/autocorrelation candidates, links a Viterbi periodicity path, derives Hilbert analytic-phase landmarks, and calculates ten-cycle RFF from accepted periods. It does not obtain its RFF values through the native aRFF-AP bridge or the retained legacy Python AP approximation. Generic numerical helpers are shared within the application.
+RFF_CEPSTRAL identifies the cepstral-assisted RFF implementation developed by Tiago Cruz. The active compute_cepstral_rff route reads the waveform, constructs multiresolution cepstral/autocorrelation candidates, links a Viterbi periodicity path, derives Hilbert analytic-phase landmarks, and calculates ten-cycle RFF from accepted periods. Its active extraction path does not call the native aRFF-AP bridge. Generic numerical utilities are shared within the application.
 
-Cepstral evidence supports periodicity tracking and acceptance. The final measure uses the classical cycle-frequency ratio in semitones; it does not append CPPS as a classifier feature. Legacy AP approximation helpers remain in the source for development comparison and are distinct from both the active cRFF route and native MATLAB aRFF-AP. These descriptions document implementation, without claiming physiological validation or historical priority.
+Cepstral evidence supports periodicity tracking and acceptance. The final RFF measure is the cycle-frequency ratio in semitones. The static function inventory and independent execution checks identify the cRFF computation used in the comparison.
 
 ## RFF-MB
 
-The unmodified original file is retained as:
-
-- `rff_auto_mb_roi_bridge/RFF_auto_MB_original_unmodified.m`
-
-The ROI bridge is implemented separately. The original method accepted a single `FricLoc` location for both sides of the transition. The bridge supplies:
-
-- `FricStart` to anchor voicing offset;
-- `FricEnd` to anchor voicing onset.
-
-The original pulse source, sliding-window voting, rejection sequence, and RFF equations are retained. Operational changes support portable paths, temporary-file handling, auditable batch input/output, and diagnostic plotting.
+The supplied original script is retained as rff_auto_mb_roi_bridge/RFF_auto_MB_original_unmodified.m. Its separate ROI bridge supplies FricStart for offset and FricEnd for onset in place of the original single FricLoc anchor. Recordings containing multiple transitions are isolated into adjacent segments. The original pulse source, sliding-window voting, rejection sequence and RFF equations are retained.
 
 ## aRFF-AP
 
-Original or byte-preserved source copies are retained, including:
+Retained source files include main_RFF_original_auto_fricative.m, find_RFFcycles_aswipep_original_auto_fricative.m, RFFoutput.m, calcRFF.m and the source parameter MAT file.
 
-- `aRFF_AP_ROI_bridge/main_RFF_original_auto_fricative.m`
-- `aRFF_AP_ROI_bridge/dependencies/find_RFFcycles_aswipep_original_auto_fricative.m`
-- `aRFF_AP_ROI_bridge/dependencies/RFFoutput.m`
-- `aRFF_AP_ROI_bridge/dependencies/calcRFF.m`
+Native aRFF-AP includes automatic fricative localization followed by human verification and correction. The separate ROI adapter supplies externally verified FricStart and FricEnd boundaries and adjacent vowel contexts. Auditory-SWIPE′ pitch estimation, cycle-candidate routines, rejection rules and final RFF calculation are retained.
 
-Native aRFF-AP already includes automatic fricative localization followed by human verification and correction. The separate ROI adapter replaces that localization result with externally verified `FricStart` and `FricEnd` boundaries. The native Auditory-SWIPE′ pitch estimation, cycle-candidate logic, rejection rules, and final RFF calculation remain authoritative.
+## Numerical operations and source identification
 
-External boundaries change the operating inputs of the adapted methods. Technical availability describes whether an implementation returns an accepted result under its own rules; it does not establish accuracy or performance in the native localization workflow.
+The [numerical compatibility record](NUMERICAL_COMPATIBILITY_2026-11-16.md) specifies the helper call forms. The [original-source record](ORIGINAL_CODE_PROVENANCE.md) identifies the supplied source archives. NATIVE_METHOD_PRESERVATION_v25.json records hashes for the distributed source components; tests/original_source_baseline.json supplies independent original-archive baseline hashes.
 
-## Public-package cleanup
-
-The GitHub-ready archive excludes development audio, generated outputs, participant-linked quality-control tables, and historical internal audit notes. Their removal does not alter any extraction function.
-
-## Verification
-
-- `validate_v25_regression.py` verifies that the optional STI addition does not change v24-style extraction outputs when STI is disabled.
-- `NATIVE_METHOD_PRESERVATION_v25.json` records SHA-256 hashes for retained native and adapter source files.
-- `SHA256SUMS.txt` records hashes for the complete GitHub-ready package.
-
-
-## Numerical compatibility record, 16 November 2026
-
-Source-retention statements in this historical record describe retained third-party routines and their intended ROI adaptation. Numerical dependencies are separately scoped in [the dated compatibility record](NUMERICAL_COMPATIBILITY_2026-11-16.md). AP smoothing and MB percentile interpolation were aligned with documented MATLAB operations, and affected analyses require reprocessing. Retaining native source files does not establish full native-workflow equivalence.
+The [compatibility tests](../tests/README.md) check numerical operators, original/adapted routines under matched inputs, and all four application dispatch routes on shared signals and ROIs. Acceptance and value agreement are distinct outputs of these checks.

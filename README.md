@@ -1,6 +1,6 @@
 # RFF Method Comparison v25
 
-A reproducible desktop application for processing the same manually verified vowel–/f/–vowel regions of interest (ROIs) with four relative fundamental frequency (RFF) pipelines. The v25 interface includes an optional exploratory spatiotemporal-index (STI) calculation. The numerical compatibility update dated 16 November 2026 aligns the AP moving-average helper and MB midpoint-percentile helper with the documented MATLAB operations; see `docs/NUMERICAL_COMPATIBILITY_2026-11-16.md`.
+RFF Method Comparison v25 is the desktop application developed to apply four relative fundamental frequency (RFF) implementations to the same recordings and manually verified vowel–/f/–vowel regions of interest (ROIs). It coordinates Python/Praat and MATLAB routines and exports cycle-level values, selected landmarks, acceptance decisions, and participant-level summaries. An optional exploratory spatiotemporal-index (STI) calculation summarizes repeated RFF trajectories.
 
 ## Methods included
 
@@ -13,15 +13,19 @@ A reproducible desktop application for processing the same manually verified vow
 
 The internal code `AVHI_PRAAT_STRICT` is retained for backward compatibility; publications and public-facing documentation may refer to it as **RFF-TC-ROI**.
 
+## Scope of the method comparison
+
+The four implementations are compared on identical waveforms and externally supplied ROIs. Outcomes include measurement availability, the selected cycle windows, and agreement in conventional RFF values. Synthetic tests additionally compare each output with the prescribed source-period sequence while keeping the audio and ROI identical across methods. Matched-support analyses use the same accepted signals for all four methods; availability is reported separately. AVHI identifies the research program in which RFF-TC-ROI was developed.
+
 ## What was preserved in the third-party methods
 
-Unmodified copies of the original RFF-MB and aRFF-AP source files are retained alongside separate ROI adapters. Native aRFF-AP already includes automatic fricative localization followed by human verification and correction; supplying external boundaries controls localization inputs. These adapters change the input conditions, so technical availability under an external ROI is not a measure of native-configuration accuracy.
+Unmodified copies of the original RFF-MB and aRFF-AP source files are retained alongside separate ROI adapters. Native aRFF-AP already includes automatic fricative localization followed by human verification and correction; supplying external boundaries controls localization inputs. The external boundaries and adjacent vowel contexts define the input protocol used for comparisons.
 
 - **aRFF-AP:** the original automatic fricative-localization step was replaced by externally supplied `FricStart` and `FricEnd` boundaries. The native Auditory-SWIPE′ pitch estimation, cycle extraction, rejection logic, and RFF calculation were retained.
 - **RFF-MB:** the original single `FricLoc` anchor was replaced by `FricStart` for offset and `FricEnd` for onset. The native Praat pulse extraction, 10-ms sliding-window voting, rejection sequence, and RFF equations were retained.
 - The adapters also provide portable paths, file input/output, temporary-file handling, audit exports, diagnostic plots, and restricted numerical compatibility helpers. These helpers are part of the evaluated implementation and should be included in source-fidelity audits. See the dated numerical compatibility record for their tested scope and limitations.
 
-See [`docs/METHOD_PROVENANCE.md`](docs/METHOD_PROVENANCE.md), [`ORIGINAL_CODE_PROVENANCE_v16.md`](ORIGINAL_CODE_PROVENANCE_v16.md), and [`NATIVE_METHOD_PRESERVATION_v25.json`](NATIVE_METHOD_PRESERVATION_v25.json).
+See [`docs/METHOD_PROVENANCE.md`](docs/METHOD_PROVENANCE.md), [`docs/ORIGINAL_CODE_PROVENANCE.md`](docs/ORIGINAL_CODE_PROVENANCE.md), and [`NATIVE_METHOD_PRESERVATION_v25.json`](NATIVE_METHOD_PRESERVATION_v25.json).
 
 ## Optional STI calculation
 
@@ -39,7 +43,7 @@ STI output files:
 - `rff_sti_trace_audit.csv`
 - corresponding sheets in `rff_method_comparison_outputs.xlsx`
 
-STI is an exploratory trajectory-variability measure. It is not a diagnosis of vocal hyperfunction and does not replace OFF10, ON1, auditory-perceptual assessment, or physiological evaluation.
+STI is an exploratory trajectory-variability measure. Interpret it alongside conventional OFF10/ON1 values, the number of contributing trajectories, and the extraction settings.
 
 ## Requirements
 
@@ -48,7 +52,7 @@ STI is an exploratory trajectory-variability measure. It is not a diagnosis of v
 - MATLAB for RFF-MB and aRFF-AP
 - Praat and `praat-parselmouth` for Praat-based processing
 
-The ROI processing and numerical compatibility update were tested with MATLAB R2026b Update 1. RFF-MB requires Audio Toolbox and Signal Processing Toolbox; AP requires the signal-processing routines used by the supplied source. Restricted helpers cover the finite-vector call forms used here and do not implement the complete optional-toolbox APIs. The Python-only methods can be used without MATLAB.
+ROI processing and numerical compatibility were tested with MATLAB R2026b Update 1. RFF-MB requires Audio Toolbox and Signal Processing Toolbox; AP requires the signal-processing routines used by the supplied source. Restricted helpers cover the finite-vector call forms used here and do not implement the complete optional-toolbox APIs. The Python-only methods can be used without MATLAB.
 
 ## Installation
 
@@ -143,7 +147,7 @@ The GitHub Actions workflow in `.github/workflows/validate.yml` repeats the Pyth
 
 ### This software
 
-Use the citation generated by GitHub from [`CITATION.cff`](CITATION.cff). Update the repository URL in that file after the public repository is created.
+Use the citation generated by GitHub from [`CITATION.cff`](CITATION.cff).
 
 ### RFF-MB
 
