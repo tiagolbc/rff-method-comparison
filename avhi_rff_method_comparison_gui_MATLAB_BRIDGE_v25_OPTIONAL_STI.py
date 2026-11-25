@@ -136,10 +136,16 @@ except Exception:  # pragma: no cover
 # User/project defaults
 # =============================================================================
 
-DEFAULT_ROOT = r"I:\Fonoaudiologia\Post Doc\PPGMDS 2026\AVHI - selection analysis pos-normative"
-DEFAULT_OUTPUT = r"I:\Fonoaudiologia\Post Doc\PPGMDS 2026\RFF Methods Comparison"
-DEFAULT_PRAAT_EXE = r"C:\Praat\Praat.exe" if pathlib.Path(r"C:\Praat\Praat.exe").exists() else ""
-DEFAULT_MATLAB_EXE = r"C:\Program Files\MATLAB\R2026a\bin\matlab.exe" if pathlib.Path(r"C:\Program Files\MATLAB\R2026a\bin\matlab.exe").exists() else "matlab"
+DEFAULT_ROOT = ""
+DEFAULT_OUTPUT = str(pathlib.Path.home() / "RFF Results")
+DEFAULT_PRAAT_EXE = (shutil.which("praatcon.exe") or shutil.which("Praat.exe")
+                     or shutil.which("praat") or "")
+DEFAULT_MATLAB_EXE = shutil.which("matlab") or "matlab"
+if os.name == "nt" and DEFAULT_MATLAB_EXE == "matlab" and os.environ.get("ProgramFiles"):
+    matlab_installations = (pathlib.Path(os.environ["ProgramFiles"]) / "MATLAB").glob("R*/bin/matlab.exe")
+    latest_matlab = max(matlab_installations, default=None)
+    if latest_matlab is not None:
+        DEFAULT_MATLAB_EXE = str(latest_matlab)
 TOKENS = ("afa", "ifi", "ufu")
 AUDIO_EXTS = {".wav", ".flac", ".aiff", ".aif", ".mp3", ".ogg"}
 

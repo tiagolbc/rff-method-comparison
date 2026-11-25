@@ -1,0 +1,55 @@
+{
+  "F0_Hz": [
+    80,
+    100,
+    130,
+    180,
+    240,
+    320,
+    400
+  ],
+  "Vocal_tract_profiles": [
+    "male_like",
+    "female_like"
+  ],
+  "Vocal_tract_note": "Two simplified formant profiles, crossed with every F0. Acoustic model labels do not encode sex or gender and are not validated individual male/female voices.",
+  "Vowels": [
+    "a",
+    "i",
+    "u"
+  ],
+  "Trajectories": {
+    "flat": [
+      0,
+      0
+    ],
+    "conventional": [
+      -1,
+      2
+    ],
+    "reversed": [
+      1,
+      -1
+    ]
+  },
+  "Main_source": "Rosenberg-style raised-cosine glottal flow, differentiated and passed through a fixed causal five-formant resonator cascade.",
+  "Independent_source": "Harmonic excitation (sum of harmonics, amplitudes 1/k^1.5), same event-clock truth and formant cascade; not any estimator output.",
+  "Main_conditions": [
+    "clean",
+    "noise30",
+    "noise15",
+    "jitter1pct",
+    "jitter3pct",
+    "shimmer10pct",
+    "alternation30pct",
+    "soft_boundary"
+  ],
+  "Replicate_seeds": [
+    2026111601,
+    2026111602
+  ],
+  "Validation_conditions": "Independent source clean; primary source compound stress (jitter 3%, shimmer 10%, alternating amplitudes 30%, 15 dB noise, soft boundary).",
+  "Synthetic_total": 2520,
+  "Sample_rate_Hz": 44100,
+  "Truth": "Exact source-cycle start/end times and periods generated before sampling; RFF normalized to actual first OFF / last ON reference periods. Jitter included in truth. Store all source events plus canonical 10 cycles per side."
+}

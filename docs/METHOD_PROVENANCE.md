@@ -14,16 +14,16 @@ Cepstral evidence supports periodicity tracking and acceptance. The final RFF me
 
 ## RFF-MB
 
-The supplied original script is retained as rff_auto_mb_roi_bridge/RFF_auto_MB_original_unmodified.m. Its separate ROI bridge supplies FricStart for offset and FricEnd for onset in place of the original single FricLoc anchor. Recordings containing multiple transitions are isolated into adjacent segments. The original pulse source, sliding-window voting, rejection sequence and RFF equations are retained.
+The supplied original script is retained as rff_auto_mb_roi_bridge/RFF_auto_MB_original_unmodified.m. Its separate ROI bridge supplies FricStart for offset and FricEnd for onset in place of the original single FricLoc anchor. Recordings containing multiple transitions are isolated into adjacent segments. The original pulse source, voting rule, rejection sequence, and RFF equations are retained. When its loop runs, MB calls Praat with the same side-specific crop in each iteration and shifts the extracted pulse times using the moving window start. TC-ROI passes both moving window limits to Praat/Parselmouth and extracts pulses on that window. Both methods can fall back to the side-specific candidate pulses. At the configured thresholds in the 639-transition study corpus, voting supplied the sequence in one offset per method. Fallback supplied 601 of 602 accepted TC-ROI offsets and 591 of 592 accepted MB offsets. See the [branch counts and audit command](../reproducibility/README.md#pulse-voting-and-fallback-table-s14).
 
 ## aRFF-AP
 
 Retained source files include main_RFF_original_auto_fricative.m, find_RFFcycles_aswipep_original_auto_fricative.m, RFFoutput.m, calcRFF.m and the source parameter MAT file.
 
-Native aRFF-AP includes automatic fricative localization followed by human verification and correction. The separate ROI adapter supplies externally verified FricStart and FricEnd boundaries and adjacent vowel contexts. Auditory-SWIPE′ pitch estimation, cycle-candidate routines, rejection rules and final RFF calculation are retained.
+Native aRFF-AP includes automatic fricative localization followed by human verification and correction. The separate ROI adapter supplies externally verified FricStart and FricEnd boundaries and adjacent vowel contexts. The adapter uses Auditory-SWIPE′ pitch estimation, source cycle-candidate routines, cycle-level rejection rules, and the source RFF calculation. The vowel-probability criterion limits the samples that contribute to pitch and pitch-strength estimates. When an individual pair does not pass this criterion, its supplied boundaries remain in the candidate list. The source extraction and acceptance steps then determine whether each side yields RFF.
 
 ## Numerical operations and source identification
 
-The [numerical compatibility record](NUMERICAL_COMPATIBILITY_2026-11-16.md) specifies the helper call forms. The [original-source record](ORIGINAL_CODE_PROVENANCE.md) identifies the supplied source archives. NATIVE_METHOD_PRESERVATION_v25.json records hashes for the distributed source components; tests/original_source_baseline.json supplies independent original-archive baseline hashes.
+The [numerical compatibility record](NUMERICAL_COMPATIBILITY_2026-11-16.md) specifies the helper call forms. The [original-source record](ORIGINAL_CODE_PROVENANCE.md) identifies the supplied source archives. NATIVE_METHOD_PRESERVATION_v25.json identifies the source component hashes for the evaluated commit; tests/original_source_baseline.json supplies independent original-archive baseline hashes.
 
 The [compatibility tests](../tests/README.md) check numerical operators, original/adapted routines under matched inputs, and all four application dispatch routes on shared signals and ROIs. Acceptance and value agreement are distinct outputs of these checks.

@@ -15,14 +15,14 @@ The internal code `AVHI_PRAAT_STRICT` is retained for backward compatibility; pu
 
 ## Scope of the method comparison
 
-The four implementations are compared on identical waveforms and externally supplied ROIs. Outcomes include measurement availability, the selected cycle windows, and agreement in conventional RFF values. Synthetic tests additionally compare each output with the prescribed source-period sequence while keeping the audio and ROI identical across methods. Matched-support analyses use the same accepted signals for all four methods; availability is reported separately. AVHI identifies the research program in which RFF-TC-ROI was developed.
+The four implementations are compared on identical waveforms and externally supplied ROIs. Outcomes include measurement availability, the selected cycle windows, and agreement in conventional RFF values. Synthetic tests additionally compare each output with the prescribed source-period sequence while keeping the audio and ROI identical across methods. Matched-support analyses use the same accepted signals for all four methods; availability is reported separately. AVHI identifies the research program in which RFF-TC-ROI was developed. The [study reproducibility materials](reproducibility/README.md) identify the evaluated commit and provide the benchmark generator and analysis commands.
 
 ## What was preserved in the third-party methods
 
 Unmodified copies of the original RFF-MB and aRFF-AP source files are retained alongside separate ROI adapters. Native aRFF-AP already includes automatic fricative localization followed by human verification and correction; supplying external boundaries controls localization inputs. The external boundaries and adjacent vowel contexts define the input protocol used for comparisons.
 
-- **aRFF-AP:** the original automatic fricative-localization step was replaced by externally supplied `FricStart` and `FricEnd` boundaries. The native Auditory-SWIPE′ pitch estimation, cycle extraction, rejection logic, and RFF calculation were retained.
-- **RFF-MB:** the original single `FricLoc` anchor was replaced by `FricStart` for offset and `FricEnd` for onset. The native Praat pulse extraction, 10-ms sliding-window voting, rejection sequence, and RFF equations were retained.
+- **aRFF-AP:** the original automatic fricative-localization step was replaced by externally supplied `FricStart` and `FricEnd` boundaries. The adapter uses the native Auditory-SWIPE′ pitch estimation and the source cycle extraction, cycle-level rejection, and RFF calculation. Vowel-probability checks control the samples used to estimate pitch and pitch strength while the supplied ROI pairs remain eligible for cycle processing.
+- **RFF-MB:** the original single `FricLoc` anchor was replaced by `FricStart` for offset and `FricEnd` for onset. The native Praat pulse extraction, voting rule, rejection sequence, and RFF equations were retained. In the study corpus, fallback supplied 591 of 592 accepted MB offsets and 601 of 602 accepted TC-ROI offsets. [Method provenance](docs/METHOD_PROVENANCE.md) describes the different inputs to the two voting loops.
 - The adapters also provide portable paths, file input/output, temporary-file handling, audit exports, diagnostic plots, and restricted numerical compatibility helpers. These helpers are part of the evaluated implementation and should be included in source-fidelity audits. See the dated numerical compatibility record for their tested scope and limitations.
 
 See [`docs/METHOD_PROVENANCE.md`](docs/METHOD_PROVENANCE.md), [`docs/ORIGINAL_CODE_PROVENANCE.md`](docs/ORIGINAL_CODE_PROVENANCE.md), and [`NATIVE_METHOD_PRESERVATION_v25.json`](NATIVE_METHOD_PRESERVATION_v25.json).
@@ -52,7 +52,7 @@ STI is an exploratory trajectory-variability measure. Interpret it alongside con
 - MATLAB for RFF-MB and aRFF-AP
 - Praat and `praat-parselmouth` for Praat-based processing
 
-ROI processing and numerical compatibility were tested with MATLAB R2026b Update 1. RFF-MB requires Audio Toolbox and Signal Processing Toolbox; AP requires the signal-processing routines used by the supplied source. Restricted helpers cover the finite-vector call forms used here and do not implement the complete optional-toolbox APIs. The Python-only methods can be used without MATLAB.
+ROI processing and numerical compatibility were tested with MATLAB R2026b Update 1. RFF-MB requires Audio Toolbox and Signal Processing Toolbox; AP requires the signal-processing routines used by the supplied source. Restricted helpers cover the finite-vector call forms used here and do not implement the complete optional-toolbox APIs. The Python-only methods can be used without MATLAB. Select the corpus folder in the application. The default output folder is `RFF Results` under the current user’s home directory. You can select the MATLAB and Praat executable paths in the application. TC-ROI normally extracts pulses through Parselmouth and can call the external Praat executable when that route is unavailable. RFF-MB calls Praat from MATLAB.
 
 ## Installation
 

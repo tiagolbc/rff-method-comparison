@@ -3,7 +3,8 @@ function [] = find_fric_roi_native(audiofolname,filename,bridge_manifest)
 %
 % The automatic fricative peak search and the interactive correction dialog
 % are replaced by externally supplied FricStart/FricEnd values.  The original
-% vowel-probability screening, F0/PS aggregation, F0-band filtering, and
+% vowel-probability criterion controls the samples pooled for F0/PS.
+% Supplied ROI pairs remain eligible for cycle processing. F0-band filtering and
 % inter-instance recording-edge calculations are retained below.
 
 global min_pitch_set;

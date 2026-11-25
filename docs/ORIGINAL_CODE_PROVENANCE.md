@@ -9,4 +9,4 @@ tests/original_source_baseline.json contains fixed baseline hashes derived from 
 
 Original entry points are retained separately from the ROI adapters. The adapters supply external boundaries, coordinate batch input/output, and use the documented numerical helper call forms. [Method provenance](METHOD_PROVENANCE.md) describes these input conditions; the [compatibility tests](../tests/README.md) check the original and adapted routines with matched preparation and anchors.
 
-NATIVE_METHOD_PRESERVATION_v25.json records the actual distributed source hashes. The independent original-source baseline and the current-file inventory answer separate questions: retention of supplied routines and identification of the implementation used for computation.
+NATIVE_METHOD_PRESERVATION_v25.json records the source hashes for the [evaluated snapshot](https://github.com/tiagolbc/rff-method-comparison/tree/ee19c521a2de43d84f8c59fb850aeb9c2bbff96a). [SHA256SUMS.txt](../SHA256SUMS.txt) inventories the Git-stored bytes in the current tree. Tests use the independent original-archive baseline to verify retention of the supplied routines.

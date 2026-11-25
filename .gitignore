@@ -21,12 +21,14 @@ participant_metadata*.csv
 rff_roi_marks*.csv
 rff_roi_marks*.xlsx
 fricative_locations*.csv
+!/examples/fricative_locations_template.csv
 fricative_locations*.xlsx
 
 # Bundled development fixtures not intended for public repository history
 aRFF_AP_ROI_bridge/avhi_outputs/
 
 # Generated analysis outputs
+/work/
 rff_all_*.csv
 rff_debug.csv
 rff_final_landmarks_long.csv
